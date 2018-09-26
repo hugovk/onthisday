@@ -4,6 +4,7 @@ Unit tests for contact_sheet.py
 """
 import datetime
 import unittest
+
 import onthisday
 
 

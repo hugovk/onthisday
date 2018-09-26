@@ -3,21 +3,20 @@
 Tweet your old Flickr photos from this day in history.
 """
 from __future__ import print_function
+
 import argparse
 import datetime
 import os
 import random
 import sys
-import yaml
 import webbrowser
 
 # http://www.stuvel.eu/flickrapi
-import flickrapi  # `pip install flickrapi`
+import flickrapi  # pip install flickrapi
 import flickrapi.shorturl
-
 # https://github.com/sixohsix/twitter
-# from twitter import *  # `pip install twitter`
-import twitter
+import twitter  # pip install twitter
+import yaml  # pip install PyYAML
 
 import flickr_utils
 
