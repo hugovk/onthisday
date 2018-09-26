@@ -14,6 +14,7 @@ import webbrowser
 # http://www.stuvel.eu/flickrapi
 import flickrapi  # pip install flickrapi
 import flickrapi.shorturl
+
 # https://github.com/sixohsix/twitter
 import twitter  # pip install twitter
 import yaml  # pip install PyYAML
