@@ -67,7 +67,8 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_lots_of_days(self):
         """ Tests:
-            No "ValueError: day is out of range for month" exceptions raised (e.g. for 30 Feb),
+            No "ValueError: day is out of range for month" exceptions raised
+            (e.g. for 30 Feb),
             output value is different from input, and
             output value is earlier than input
         """
