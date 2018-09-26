@@ -23,5 +23,6 @@ install:
 
 script:
  # Static analysis
+ - rm flickr_utils.py
  - flake8 --statistics --count
  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --check --diff .; fi
