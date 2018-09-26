@@ -25,7 +25,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_dec_to_june(self):
         """ Test 22 December 2013 -> 22 June 2013 """
         input = datetime.datetime(2013, 12, 22)
-        expected_output = datetime.datetime(2013, 06, 22)
+        expected_output = datetime.datetime(2013, 6, 22)
         output = onthisday.six_months_ago(input)
         self.assertEqual(expected_output, output)
 
@@ -86,7 +86,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test_2_dec_to_june(self):
         """ Test 22 December 2013 -> 22 June 2014 """
         input = datetime.datetime(2013, 12, 22)
-        expected_output = datetime.datetime(2014, 06, 22)
+        expected_output = datetime.datetime(2014, 6, 22)
         output = onthisday.six_months_from(input)
         self.assertEqual(expected_output, output)
 
