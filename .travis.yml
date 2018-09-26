@@ -22,6 +22,9 @@ install:
  - wget https://raw.githubusercontent.com/hugovk/flickr-tools/master/flickr_utils.py
 
 script:
+ # Unit tests
+ - python test_onthisday.py
+
  # Static analysis
  - rm flickr_utils.py
  - flake8 --statistics --count
