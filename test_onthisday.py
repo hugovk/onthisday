@@ -6,14 +6,15 @@ import datetime
 import unittest
 import onthisday
 
+
 class TestSequenceFunctions(unittest.TestCase):
 
-#     def setUp(self):
-#         self.seq = range(10)
+    # def setUp(self):
+    #     self.seq = range(10)
 
     def daterange(self, start_date, end_date):
-        """ http://stackoverflow.com/questions/1060279/iterating-through-a-range-of-dates-in-python """
-        for n in range(int ((end_date - start_date).days)):
+        # https://stackoverflow.com/q/1060279/724176
+        for n in range(int((end_date - start_date).days)):
             yield start_date + datetime.timedelta(n)
 
     def test_changed(self):
@@ -132,7 +133,7 @@ class TestSequenceFunctions(unittest.TestCase):
             output value is different from input, and
             output value is later than input
         """
-        for year in range(2000, 2030+1):
+        for year in range(2000, 2030 + 1):
             for month in range(1, 12):
                 for day in range(1, 28):
                     input = datetime.datetime(year, month, day)
@@ -142,6 +143,5 @@ class TestSequenceFunctions(unittest.TestCase):
                     self.assertTrue(output > input)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
