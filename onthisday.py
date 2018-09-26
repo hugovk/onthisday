@@ -133,9 +133,9 @@ def find_photos(flickr, my_nsid, tweet, now, earliest_year):
 
     print("Found", found, "photos")
 
-    # There's room for four tweetlets in a tweet
-    if len(tweetlets) > 4:
-        tweetlets = random.sample(tweetlets, 4)
+    # There's room for eight tweetlets in a tweet
+    if len(tweetlets) > 8:
+        tweetlets = random.sample(tweetlets, 8)
 
     # In random order
     # tweet += " " + " ".join(sorted(tweetlets, reverse=True))
