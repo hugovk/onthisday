@@ -76,7 +76,7 @@ class TestSequenceFunctions(unittest.TestCase):
         for input in self.daterange(start_date, end_date):
             output = onthisday.six_months_ago(input)
             self.assertNotEqual(input, output)
-            self.assertTrue(output < input)
+            self.assertLess(output, input)
 
     def test_2_changed(self):
         """ Test return isn't same as parameter """
@@ -138,9 +138,9 @@ class TestSequenceFunctions(unittest.TestCase):
                 for day in range(1, 28):
                     input = datetime.datetime(year, month, day)
                     output = onthisday.six_months_from(input)
-                    self.assertNotEqual(None, output)
+                    self.assertIsNotNone(output)
                     self.assertNotEqual(input, output)
-                    self.assertTrue(output > input)
+                    self.assertGreater(output, input)
 
 
 if __name__ == "__main__":
