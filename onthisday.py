@@ -2,8 +2,6 @@
 """
 Tweet your old Flickr photos from this day in history.
 """
-from __future__ import print_function
-
 import argparse
 import datetime
 import os
@@ -26,8 +24,7 @@ def load_yaml(filename):
     with open(filename) as f:
         data = yaml.safe_load(f)
 
-    keys = data.viewkeys() if sys.version_info.major == 2 else data.keys()
-    if not keys >= {
+    if not data.keys() >= {
         "oauth_token",
         "oauth_token_secret",
         "consumer_key",
