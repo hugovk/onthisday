@@ -4,7 +4,6 @@ Tweet your old Flickr photos from this day in history.
 """
 import argparse
 import datetime
-import os
 import random
 import sys
 import webbrowser
@@ -31,6 +30,10 @@ def load_yaml(filename):
         "consumer_secret",
     }:
         sys.exit("Twitter credentials missing from YAML: " + filename)
+
+    if not data.keys() >= {"flickr_api_key", "flickr_api_secret"}:
+        sys.exit("Flickr credentials missing from YAML: " + filename)
+
     return data
 
 
@@ -176,18 +179,6 @@ if __name__ == "__main__":
         help="Test mode: go through the motions but don't tweet",
     )
     parser.add_argument(
-        "-k",
-        "--api-key",
-        help="Flickr API key. "
-        "If not given, looks in FLICKR_API_KEY environment variable",
-    )
-    parser.add_argument(
-        "-s",
-        "--api-secret",
-        help="Flickr API secret. "
-        "If not given, looks in FLICKR_SECRET environment variable",
-    )
-    parser.add_argument(
         "-nw",
         "--no-web",
         action="store_true",
@@ -202,13 +193,11 @@ if __name__ == "__main__":
     except ImportError:
         pass
 
-    twitter_credentials = load_yaml(args.yaml)
+    credentials = load_yaml(args.yaml)
 
-    if not args.api_key:
-        args.api_key = os.environ["FLICKR_API_KEY"]
-    if not args.api_secret:
-        args.api_secret = os.environ["FLICKR_SECRET"]
-    flickr = flickrapi.FlickrAPI(args.api_key, args.api_secret)
+    flickr = flickrapi.FlickrAPI(
+        credentials["flickr_api_key"], credentials["flickr_api_secret"]
+    )
     flickr.authenticate_via_browser(perms="write")
 
     if args.test:
@@ -250,6 +239,6 @@ if __name__ == "__main__":
         sys.exit("No photos found, try again tomorrow")
 
     print("Tweet this:\n", tweet)
-    tweet_it(tweet, twitter_credentials)
+    tweet_it(tweet, credentials)
 
 # End of file
