@@ -198,7 +198,7 @@ if __name__ == "__main__":
     flickr = flickrapi.FlickrAPI(
         credentials["flickr_api_key"], credentials["flickr_api_secret"]
     )
-    flickr.authenticate_via_browser(perms="write")
+    # flickr.authenticate_via_browser(perms="write")
 
     if args.test:
         print("(Test mode, not actually tweeting)")
