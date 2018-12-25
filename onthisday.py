@@ -176,7 +176,7 @@ if __name__ == "__main__":
         "-x",
         "--test",
         action="store_true",
-        help="Test mode: go through the motions but don't add any photos",
+        help="Test mode: go through the motions but don't tweet",
     )
     parser.add_argument(
         "-k",
