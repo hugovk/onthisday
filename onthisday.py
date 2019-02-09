@@ -125,7 +125,7 @@ def find_photos(flickr, my_nsid, tweet, now, earliest_year):
             found += 1
             #             ET.dump(photo)
             photo_id = int(photo.attrib["id"])
-            url = flickrapi.shorturl.url(photo_id)
+            url = flickrapi.shorturl.url(photo_id).replace("http:", "https:")
             tweetlet = str(year) + ": " + url
             tweetlets.append(tweetlet)
         else:
