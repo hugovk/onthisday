@@ -67,11 +67,11 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(expected_output, output)
 
     def test_lots_of_days(self):
-        """ Tests:
-            No "ValueError: day is out of range for month" exceptions raised
-            (e.g. for 30 Feb),
-            output value is different from input, and
-            output value is earlier than input
+        """Tests:
+        No "ValueError: day is out of range for month" exceptions raised
+        (e.g. for 30 Feb),
+        output value is different from input, and
+        output value is earlier than input
         """
         start_date = datetime.datetime(2000, 1, 1)
         end_date = datetime.datetime(2030, 12, 31)
@@ -129,11 +129,11 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(expected_output, output)
 
     def test_2_lots_of_days(self):
-        """ Some dates with day > 28 will return None. Forget those.
-            Tests:
-            days 1-28 don't return None
-            output value is different from input, and
-            output value is later than input
+        """Some dates with day > 28 will return None. Forget those.
+        Tests:
+        days 1-28 don't return None
+        output value is different from input, and
+        output value is later than input
         """
         for year in range(2000, 2030 + 1):
             for month in range(1, 12):
